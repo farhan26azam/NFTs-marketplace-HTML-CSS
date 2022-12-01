@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html style="background-image: url('tech_back.jpg');
+    scroll-behavior: auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <script>
+        var v = new Array();
+
+        v[0] = [
+            "videos/doodle_gif.webm",
+        ];
+        v[1] = [
+            "videos/ape_gif.webp",
+        ];
+        v[2] = [
+            "videos/round_face.webp",
+
+        ];
+
+        function changeVid(n){
+            var video = document.getElementById('center_gif');
+
+            if(Modernizr.video && Modernizr.video.webm) {
+                video.setAttribute("src", v[n][0]);
+            } else if(Modernizr.video && Modernizr.video.ogg) {
+                video.setAttribute("src", v[n][1]);
+            } else if(Modernizr.video && Modernizr.video.h264) {
+                video.setAttribute("src", v[n][2]);
+            }
+
+            video.load();
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: LeagueSpartan;
+            src: url(LeagueSpartan-VariableFont_wght.ttf);
+        }
+        @font-face {
+            font-family: Kombu;
+            src: url(gomarice_sio_kombu.ttf);
+        }
+        @font-face {
+            font-family: Hammersmith;
+            src: url(HammersmithOne-Regular.ttf);
+        }
+        div.front {
+            position: absolute;
+            top: 55px;
+            height: 700px;
+            width: 98%;
+            margin: 15px 15px 0 15px;
+            background-color: transparent;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border: solid thin;
+            border-style: none;
+            border-color: royalblue;
+            border-radius: 20px;
+        }
+
+        div.side {
+            margin: 15px 15px 15px 15px;
+            position: absolute;
+            top: 775px;
+            height: 620px;
+            width: 22%;
+            background-color: transparent;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border: solid thin;
+            border-color: royalblue;
+            border-radius: 20px;
+        }
+
+        div.side:hover {
+            border: solid;
+            background-color: black;
+            border-color: royalblue;
+            transform: scale(1.01,1.01);
+        }
+
+        div.middle {
+            margin: 15px 15px 15px 15px;
+            position: absolute;
+            top: 775px;
+            height: 620px;
+            width: 50%;
+            background-color: transparent;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border: solid thin;
+            border-color: royalblue;
+            border-radius: 20px;
+        }
+
+        div.middle:hover {
+            border: solid;
+            background-color: black;
+            border-color: royalblue;
+            transform: scale(1.01,1.01);
+        }
+
+
+
+        .topnav {
+            width: 100%;
+            height: 5%;
+            position: fixed;
+            padding: 0.2% 0 0.3% 34%;
+            overflow: hidden;
+            background-color: slateblue;
+
+            z-index: 10;
+            border-style: groove;
+            border-color: transparent;
+            border-radius: 30px;
+        }
+        .topnav a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 25px;
+            text-decoration: none;
+            font-size: 25px;
+            font-family: 'LeagueSpartan',serif;
+            font-weight: bold;
+        }
+
+        .topnav a:hover {
+            border-radius: 10px;
+            background-color: midnightblue;
+            color: white;
+        }
+
+        button.od {
+            font-size: 30px;
+            font-family: LeagueSpartan;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            margin-left: 42%;
+            background-color: royalblue;
+            width: 300px;
+            height: 60px;
+            border-radius: 10px;
+            border-style: none;
+        }
+
+        button.od:hover {
+            border: solid thin;
+            background-color: black;
+            border-color: steelblue;
+            transform: scale(1.1,1.1);
+        }
+
+        p {
+            color: white;
+            font-family: sans-serif;
+        }
+
+        p.sidet {
+            font-family: LeagueSpartan;
+            font-weight: bold;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        button.more {
+            position: absolute;
+            left: 20%;
+            bottom: 20px;
+            font-size: 25px;
+            font-family: LeagueSpartan;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            background-color: black;
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            border: solid thin;
+            border-color: royalblue;
+        }
+
+        button.more:hover {
+            background-color: royalblue;
+            transform: scale(1.1,1.1);
+        }
+
+
+        div.proj {
+            position: absolute;
+            right: 50px;
+            margin: 50px 15px 15px 15px;
+            position: absolute;
+            height: 400px;
+            width: 300px;
+            background-color: #161616;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border: none;
+            border-radius: 20px;
+        }
+
+        div.proj:hover {
+            background-color: #282828;
+            transform: scale(1.02,1.02);
+        }
+
+        div.img {
+            position: absolute;
+            left: 30px;
+            margin: 5px 5px 5px 5px;
+            position: absolute;
+            height: 300px;
+            width: 230px;
+            border: none;
+            border-radius: 20px;
+        }
+
+        center_gif{
+            margin-top: 2px;
+            margin-left: 40%;
+            width: 20px;
+            float: right;
+        }
+
+        .collections{
+            height: 320px;
+            width: 300px;
+            margin: auto;;
+            background-color: transparent;
+            border-radius: 20px;
+            border-style: groove;
+            border-color: transparent;
+        }
+
+        .sidet_highlights{
+            padding-top: -20px;
+            padding-left: 25%;
+            font-family: LeagueSpartan;
+            font-size: 40px;
+        }
+        .NFT1{
+            border-style: groove;
+            border-color: transparent;
+            border-radius: 20px;
+            background-color: darkslateblue;
+            width: 330px;
+            height: 400px;
+            float: left;
+            margin-top: -25px;
+            margin-left: 7%;
+        }
+        .NFT1_contain{
+            padding-top: 15px;
+            padding-left: 7px;
+            padding-right: 10px;
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+
+        .NFT2{
+            border-style: groove;
+            border-color: transparent;
+            border-radius: 20px;
+            background-color: darkslateblue;
+            width: 330px;
+            height: 400px;
+            float: right;
+            margin-top: -25px;
+            margin-right: 7%;
+        }
+
+        .NFT_description{
+            font-size: 30px;
+            font-family: LeagueSpartan;
+            margin: auto;
+            text-align: center;
+            padding-top: 25px;
+            font-weight: bold;
+        }
+
+        .collection_contain{
+            border-style: groove;
+            border-color: transparent;
+            border-radius: 20px;
+            background-color: darkslateblue;
+            width: 330px;
+            height: 400px;
+            float: left;
+            margin-top: -30px;
+            margin-left: -5%;
+
+        }
+
+    </style>
+
+
+    <title> NFTech - Buy and Sell NFTs </title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+<!--    <link rel="stylesheet" href="css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap.rtl.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-grid.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-grid.min.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-grid.rtl.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-grid.rtl.min.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-reboot.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-reboot.rtl.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-reboot.rtl.min.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-utilities.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-utilities.min.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-utilities.rtl.css">-->
+<!--    <link rel="stylesheet" href="css/bootstrap-utilities.rtl.min.css">-->
+
+<!--    <script src="js/bootstrap.bundle.js"></script>-->
+<!--    <script src="js/bootstrap.bundle.min.js"></script>-->
+<!--    <script src="js/bootstrap.esm.js"></script>-->
+<!--    <script src="js/bootstrap.esm.min.js"></script>-->
+<!--    <script src="js/bootstrap.js"></script>-->
+<!--    <script src="js/bootstrap.min.js"></script>-->
+
+</head>
+<body style="">
+
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#Trending">Trending</a>
+    <a href="#Projects">Projects</a>
+    <a href="#account">My Account</a>
+</div>
+<div class="front" style=" background-repeat: no-repeat; background-size: cover">
+    <p style="font-family: 'Kombu'; font-size: 120px; margin-top: 20px; color: white; text-align:center">
+        Cryptex NFTs
+    </p>
+    <img class="center_gif"
+         style="border-style: groove;border-color: transparent;
+             border-radius: 30px;width: 300px;
+             height: 300px; margin-left: 780px;
+             margin-top: -100px" src="videos/ape_gif.webp">
+
+    <p style="font-family: LeagueSpartan;opacity: 1;color: white;margin-left: 39%; padding-top: 0%; font-size:25px">
+        Be at the frontline of the NFT revolution
+    </p>
+    <button class="od">
+        Open dashboard
+    </button>
+</div>
+
+<div class="side" style="">
+    <p class="sidet">Collections</p>
+
+    <div class="collections">
+        <div class="collection_contain">
+            <div class="NFT1_contain">
+                <img style="width: 300px; height: 300px; border-style: groove; border-radius: 30px; border-color: transparent";
+                     src="videos/vampire_x.webp">
+                <p class="NFT_description">Vampire - X</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="more">
+        More
+    </button>
+</div>
+
+
+<div class="middle" style="left:24%">
+    <p class="sidet">NFTs</p>
+
+    <div class="NFT1">
+        <div class="NFT1_contain">
+            <img style="width: 300px; height: 300px; border-style: groove; border-radius: 30px; border-color: transparent;position: relative";
+                 src="https://i.seadn.io/gae/5j5EIAn77bETPT7rK7U5uNxfu3NDhyc-39WP-g9ERCjkJb27Q8NM_z4poKhqkUvkDnxmLp7weK_7h-zOX1J_fvh8EhtjqH33Ty1EHA?auto=format&w=384">
+            <p class="NFT_description">Lightborn Avatars #248</p>
+        </div>
+
+    </div>
+    <div class="NFT2">
+        <div class="NFT1_contain">
+            <img style="width: 300px; height: 300px; border-style: groove; border-radius: 30px; border-color: transparent;position: relative";
+                 src="https://i.seadn.io/gae/Z75rz2l9HH85DMteWFNGcuckSvz_aWZYvfHctCw3lUa57YuSvWfJLCGlYoIiVik3UoyVpLVuC1Ptj063qW5twYv3n_YTYdFHJarU?auto=format&w=384">
+            <p class="NFT_description">Cool Cookies #1943</p>
+        </div>
+    </div>
+    <button class="more" style="left:40%">
+        More
+    </button>
+</div>
+
+<div class="side" style="right:0%">
+    <p class="sidet">Creators</p>
+    <div class="NFT2">
+        <div class="NFT1_contain">
+            <img style="width: 300px; height: 300px; border-style: groove; border-radius: 30px; border-color: transparent;position: relative";
+                 src="https://i.seadn.io/gcs/files/f3b11e36be14a5d31c75b19d03996fed.gif?auto=format&w=256">
+            <p class="NFT_description">RENGA</p>
+        </div>
+    </div>
+    <button class="more">
+        More
+    </button>
+</div>
+
+
+
+<div class="front" style="position:absolute; top:1500px; height: 500px">
+    <div class="proj" style="right: 1430px; background-color:transparent">
+        <p style="font-size:50px; font-family: LeagueSpartan">Try it out with these projects</p></div>
+    <div class="proj">
+
+        <div class="img">
+            <img style='height: 100%; width: 100%; object-fit: cover; margin-top: 25px; border-radius: 20px; border-style: none'
+                 src="NFT_project_images/nft-supducks-preview.jpg" alt="p2" />  </div>
+        <p class="sidet" style="position:absolute; top: 320px; left: 27%; font-size: 30px">SupDucks</p>
+
+    </div>
+    <div class="proj" style="right: 390px;">
+
+        <div class="img">
+            <img style='height: 100%; width: 100%; object-fit: cover; margin-top: 25px; border-radius: 20px; border-style: none'
+                 src="NFT_project_images/nft-decentraland-preview.jpg" alt="p2" />  </div>
+        <p class="sidet" style="position:absolute; top: 320px; left: 23%; font-size: 30px">Decentraland</p>
+
+    </div>
+    <div class="proj" style="right: 730px;">
+
+        <div class="img">
+            <img style='height: 100%; width: 100%; object-fit: cover; margin-top: 25px; border-radius: 20px; border-style: none'
+                 src="NFT_project_images/nft-cryptokitties-preview_27108.jpg" alt="p2" />  </div>
+        <p class="sidet" style="position:absolute; top: 320px; left: 23%; font-size: 30px">Crypto Kitties</p>
+
+    </div>
+</div>
+
+</body>
+</html>
