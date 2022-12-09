@@ -1,12 +1,13 @@
 <?php
+session_start();
 $background = "tech_back.jpg"?>
 <html style="background-image: url('<?php echo $background;?>');
-    scroll-behavior: auto;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    ">
+        scroll-behavior: auto;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        ">
 <head>
     <meta charset="UTF-8">
     <title>Beanz</title>
@@ -213,25 +214,30 @@ $project_name="";
 if(isset($_GET['pn']))
 {
     $project_name = $_GET["pn"];
-        //header("Location:". show . ".php");
+    //header("Location:". show . ".php");
 }
-$query1 = "SELECT * from projects where pname='$project_name'";
+
+//echo "<div class='NFT_image' style='margin-left: 2vh ; margin-top: 10vh'> <p class='project_name'>" . ' project name: ' . $project_name . "</p></div>";
+$proj_name = ucfirst($project_name);
+$query1 = "SELECT * from projects where pname='$proj_name'";
 $result = $conn->query($query1);
 if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $launch_date = $row["launch_date"];
-        //echo "\n\n\n\n". $launch_date;
         $creator_name = $row["cname"];
-        //echo $creator_name;
         $owner_name = $row["oname"];
-        //echo $owner_name;
+        //echo "<div class='NFT_image' style='margin-left: 2vh'> <p class='project_name' style='font-size: 2vh'>" . 'rows fetched: ' . $result->num_rows . "</p></div>";
+        //echo "<div class='NFT_image' style='margin-left: 2vh; margin-top: 10vh'> <p class='project_name' style='font-size: 2vh'>" . 'cname: ' . $creator_name . "</p></div>";
+        //echo "<div class='NFT_image' style='margin-left: 2vh;margin-top: 20vh'> <p class='project_name' style='font-size: 2vh'>" . 'oname: ' . $owner_name . "</p></div>";
+        //echo "<div class='NFT_image' style='margin-left: 2vh;margin-top: 30vh'> <p class='project_name' style='font-size: 2vh'>" . 'launch date: ' . $launch_date . "</p></div>";
     }
+}
+else
+{
+    echo "<div class='NFT_image'> <p class='project_name' style='margin-left: 2vh'>" . 'No row fetched: ' . $result->num_rows . "</p></div>";
 }
 
 $profile_picture = "NFT_Projects_data/".$project_name."/profile_pic.avif";
-$launch_date ="";
-$creator_name ="";
-$owner_name = "";
 
 
 
@@ -256,6 +262,7 @@ if($result->num_rows > 0){
         $count = $count+1;
     }
 }
+
 $in_count = 1;
 $query3 = "SELECT COUNT(*) AS NFT_COUNT FROM NFTS WHERE project_name='$project_name'";
 $result = $conn->query($query3);
@@ -289,7 +296,7 @@ z-index: 10 !important;"
         <a class="active" href="cryptex.php">Home</a>
         <a class="active" href="#Trending">Trending</a>
         <a class="active" href="projects.php">Projects</a>
-        <a class="active" href="#account">My Account</a>
+        <a class="active" href="account.php">My Account</a>
 
 
     </div>
@@ -301,7 +308,7 @@ z-index: 10 !important;"
     </p>
     <div class="project_owner">
         <a class="owner_name">
-            <?php echo $owner_name;?></a>
+            <?php echo $creator_name;?></a>
     </div>
     <div class="total_NFTs_price">
         <p class="total_NFTs_price_text">
@@ -320,53 +327,17 @@ z-index: 10 !important;"
     </div>
 </div>
 <div class="project_NFT">
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name1"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name2"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name3"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name4"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-    <br>
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name5"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name6"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name7"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name8"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
+    <?php
+    while($count>1){
+    echo "<div class=\"NFT\">";?>
+    <html><body><img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" >
+    <?php echo "<p class=\"NFT_name\"> " . $name_array[$in_count] . " </p>";?>
+    <?php echo "<p class=\"NFT_price\"> " . $price_array[$in_count] . " </p>";?>
+    <?php echo "</div>";
+    $count = $count-1;
+    $in_count = $in_count+1;
+    }
+    ?>
 </div>
 </body>
 

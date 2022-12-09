@@ -9,40 +9,43 @@
 <head>
 
 
-<?php
+    <?php
 
-     if(isset($_POST['Signup']))
+    session_start();
+    if(isset($_POST['Signup']))
     {
 
         $connect = mysqli_connect("localhost", "root", "") or die(mysqli_error($connect));
         mysqli_select_db($connect,"cryptex") or die(mysqli_error($connect));
-   		$name = $_POST['name'];
-   		$email = $_POST['email'];
-   		$cc_no = $_POST['cc_no'];
-   		$cc_cvv = $_POST['cc_cvv'];
-   		$password = $_POST['password'];
-   		$confirm = $_POST['confirm'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $cc_no = $_POST['cc_no'];
+        $cc_cvv = $_POST['cc_cvv'];
+        $password = $_POST['password'];
+        $confirm = $_POST['confirm'];
 
-		if($password != $confirm)
-		{
-			echo '<script type="text/JavaScript"> alert("Passwords do not match.");</script>';
-		}
+        if($password != $confirm)
+        {
+            echo '<script type="text/JavaScript"> alert("Passwords do not match.");</script>';
+        }
 
-		else{
+        else{
             $ran = rand(10,99);
             $n = substr($name,0,4);
             $id = $n . $ran;
-   			$query = "Insert into account Values ('$id','$name','$email','$password','$cc_no','$cc_cvv',0,0);";
-			$result = mysqli_query($connect,$query) or die(mysqli_error($connect));
-			header("Location: cryptex.php");
-		}
-	 
-   		
-	}
+            $query = "Insert into account Values ('$id','$name','$email','$password','$cc_no','$cc_cvv',0,0);";
+            $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
+            header("Location: log_in.php");
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $name;
+        }
+
+
+    }
 
 
 
-?>
+    ?>
 
 
 
@@ -171,12 +174,12 @@
             border-radius: 20px;
         }
 
-            div.side:hover {
-                border: solid;
-                background-color: black;
-                border-color: royalblue;
-                transform: scale(1.01,1.01);
-            }
+        div.side:hover {
+            border: solid;
+            background-color: black;
+            border-color: royalblue;
+            transform: scale(1.01,1.01);
+        }
 
         div.middle {
             margin: 15px 15px 15px 15px;
@@ -197,14 +200,14 @@
             font-family: sans-serif;
         }
 
-            p.sidet {
-                font-family: LeagueSpartan;
-                font-weight: bold;
-                text-align: center;
-                font-size: 3vw;
-                padding-top: 4vh;
-                padding-bottom: 4vh;
-            }
+        p.sidet {
+            font-family: LeagueSpartan;
+            font-weight: bold;
+            text-align: center;
+            font-size: 3vw;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+        }
 
 
         input.next {
@@ -225,10 +228,10 @@
             margin: 2% 0%;
         }
 
-            input.next:hover {
-                background-color: black;
-                transform: scale(1.1,1.1);
-            }
+        input.next:hover {
+            background-color: black;
+            transform: scale(1.1,1.1);
+        }
 
         input.in {
             padding: 0px 0px 0px 10px;
@@ -245,10 +248,10 @@
             border-color: royalblue;
         }
 
-            input.in:focus {
-                border: solid;
-                border-color: dodgerblue;
-            }
+        input.in:focus {
+            border: solid;
+            border-color: dodgerblue;
+        }
 
         div.img {
             position: absolute;
@@ -284,8 +287,8 @@
 </head>
 <body>
 
-    <div class=�top_nav�
-         style="background-color: slateblue;
+<div class=�top_nav�
+     style="background-color: slateblue;
         border-style: groove;
         border-color: transparent;
         border-radius: 30px;
@@ -295,43 +298,41 @@
         width: 99.5%;
         float: left;
         z-index: 10 !important;">
-        <div class="topnav" style="padding-left: 34vw">
-            <p style="padding-top: 12px;
+    <div class="topnav" style="padding-left: 34vw">
+        <p style="padding-top: 12px;
         color: white;font-size: 40px;
         font-family: Kombu;float:none;
         margin-left: 12%">CRYPTEX</p>
-        </div>
     </div>
+</div>
 
-    <div class="middle" style="left:30%">
-        <p class="sidet">SIGN UP</p>
-
-
-        <form action="sign_up.php" method="post">
-            <input class="in" ; type="text" id="name" name="name" placeholder="Username" />
-            <input class="in" ; type="text" id="email" name="email" placeholder="Email" />
-            <input class="in" ; type="text" id="cc_no" name="cc_no" placeholder="Credit Card Number" />
-            <input class="in" ; type="text" id="cc_cvv" name="cc_cvv" placeholder="Credit Card CVV (3 digits)" />
-            <input style="width: 14vw" class="in" ; type="password" ; id="password" name="password" placeholder="Password" />
-            <input style="width: 14vw" class="in" ; type="password" ; id="confirm" name="confirm" placeholder="Confirm Password" /><br /><br />
-            <a style="font-family:LeagueSpartan ; font-size:140%; text-decoration:none" href="log_in.php">Log In instead</a>
-            <input style="margin-left:6%" class="next" type="submit" name="Signup" value="Sign Up" />
-        </form>
-
-
-    </div>
+<div class="middle" style="left:30%">
+    <p class="sidet">SIGN UP</p>
+    <form action="sign_up.php" method="post">
+        <input class="in" ; type="text" id="name" name="name" placeholder="Username" />
+        <input class="in" ; type="text" id="email" name="email" placeholder="Email" />
+        <input class="in" ; type="text" id="cc_no" name="cc_no" placeholder="Credit Card Number" />
+        <input class="in" ; type="text" id="cc_cvv" name="cc_cvv" placeholder="Credit Card CVV (3 digits)" />
+        <input style="width: 14vw" class="in" ; type="password" ; id="password" name="password" placeholder="Password" />
+        <input style="width: 14vw" class="in" ; type="password" ; id="confirm" name="confirm" placeholder="Confirm Password" /><br /><br />
+        <a style="font-family:LeagueSpartan ; font-size:140%; text-decoration:none" href="log_in.php">Log In instead</a>
+        <input style="margin-left:6%" class="next" type="submit" name="Signup" value="Sign Up" />
+    </form>
 
 
+</div>
 
-    <nav class="foot">
-        <!--     background-color: transparent;-->
-        <!--     bottom: 0;-->
-        <!--     height: 50vh;"-->
-        <!--    <p style="padding-top: 4vh;-->
-        <!--        color: white;font-size: 50px;-->
-        <!--        font-family: Kombu;float: left;-->
-        <!--        margin-left: 6vw">CRYPTEX</p>-->
-    </nav>
+
+
+<nav class="foot">
+    <!--     background-color: transparent;-->
+    <!--     bottom: 0;-->
+    <!--     height: 50vh;"-->
+    <!--    <p style="padding-top: 4vh;-->
+    <!--        color: white;font-size: 50px;-->
+    <!--        font-family: Kombu;float: left;-->
+    <!--        margin-left: 6vw">CRYPTEX</p>-->
+</nav>
 
 
 </body>

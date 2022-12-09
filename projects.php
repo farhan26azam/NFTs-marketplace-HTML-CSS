@@ -1,4 +1,5 @@
 <?php
+session_start();
 $background = "tech_back.jpg"?>
 <html style="background-image: url('<?php echo $background;?>');
         scroll-behavior: auto;
@@ -9,7 +10,7 @@ $background = "tech_back.jpg"?>
         ">
 <head>
     <meta charset="UTF-8">
-    <title>Dippies</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
     <link rel="icon" type="image/x-icon" href="icon.png">
@@ -24,7 +25,7 @@ $password = "";
 $conn = mysqli_connect($host, $username, $password, $db);
 if($conn->error){echo "Cannot connect";}
 $project_folder = "NFT_projects_profile_pictures/";
-$ext = ".jpg";
+$ext = ".avif";
 $pname_array = [];
 $cname_array =[];
 $images_array =[];
@@ -65,7 +66,7 @@ z-index: 10 !important;"
         <a class="active" href="cryptex.php">Home</a>
         <a class="active" href="#Trending">Trending</a>
         <a class="active" href="projects.php">Projects</a>
-        <a class="active" href="#account">My Account</a>
+        <a class="active" href="account.php">My Account</a>
 
 
     </div>
@@ -86,26 +87,30 @@ z-index: 10 !important;"
     <?php
     while($count>1){
         echo "<div class=\"NFT\">";?>
-        <html><body><img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" >
-        <a href="project_profile.php?pn=<?php echo $pname_array[$in_count]; ?>" ></body></html>
+        <html><body>
+        <img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" >
+        <div style="
+    position: absolute;
+    padding: 0px 0px 0px 0px;
+    font-family: LeagueSpartan;
+    border:solid;
+    height: 2vh;
+    width: 10vw;
+    margin-top: 6vh;
+    margin-left: 5.5%;
+    border-radius: 5px;
+    background-color:transparent;">
+            <a style="color:transparent" href="project_profile.php?pn=<?php echo $pname_array[$in_count]; ?>" >
+
+            </a>
+        </div>
+        </body></html>
         <?php echo "<p class=\"NFT_price\"> " . $cname_array[$in_count] . " </p>";?>
         <?php echo "</div>";
         $count = $count-1;
         $in_count = $in_count+1;
     }
     ?>
-
-
-
-
-    <!--    <div class="NFT">-->
-<!--        <img class="NFT_image" src="--><?php //echo $images_array[$in_count];?><!--">-->
-<!--        <p class="NFT_name" id="NFT_name2">--><?php //echo $pname_array[$in_count]?><!--</p>-->
-<!--        <p class="NFT_price">--><?php //echo $cname_array[$in_count]; $in_count = $in_count+1;?><!--</p>-->
-<!--    </div>-->
-
-
-
 </div>
 </body>
 

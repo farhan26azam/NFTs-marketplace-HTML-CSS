@@ -1,12 +1,13 @@
 <?php
+session_start();
 $background = "tech_back.jpg"?>
 <html style="background-image: url('<?php echo $background;?>');
-    scroll-behavior: auto;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    ">
+        scroll-behavior: auto;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        ">
 <head>
     <meta charset="UTF-8">
     <title>Beanz</title>
@@ -202,6 +203,7 @@ $background = "tech_back.jpg"?>
 </head>
 </html>
 <?php
+session_start();
 $filename = basename($_SERVER["SCRIPT_FILENAME"],'.php');
 $host = "localhost";
 $db = "cryptex";
@@ -215,66 +217,54 @@ if(isset($_GET['pn']))
     $project_name = $_GET["pn"];
     //header("Location:". show . ".php");
 }
-$query1 = "SELECT * from nfts where owner_name=' .......  '";
-$query2 = "SELECT * from account";
+
+echo "<div class='NFT_image' style='margin-left: 2vh; margin-top: 10vh'>" . $_SESSION['username'] . "</div>";
+$query1 = "SELECT * from account where name='" . $_SESSION['username'] . "'";
 
 
 $result = $conn->query($query1);
 if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $account_ID = $row['account_ID'];
-        $name = $row['account_ID'];
-        $email = $row['account_ID'];
-        $account_ID = $row['account_ID'];
-        $account_ID = $row['account_ID'];
-
-
-        $launch_date = $row["launch_date"];
-        //echo "\n\n\n\n". $launch_date;
-        $creator_name = $row["cname"];
-        //echo $creator_name;
-        $owner_name = $row["oname"];
-        //echo $owner_name;
+        $name = $row['name'];
+        $email = $row['email'];
+        $NFTs_owned = $row['NFTs_owned'];
+        $account_credit = $row['account_credit'];
     }
 }
 
-$profile_picture = "NFT_Projects_data/".$project_name."/profile_pic.avif";
-$launch_date ="";
-$creator_name ="";
-$owner_name = "";
 
-
-
-$project_folder = "NFT_Projects_data/".$project_name."/";
+$project_folder = "NFT_images/";
 $ext = ".avif";
-$id_array = [];
-$name_array =[];
-$price_array = [];
-$c_date_array =[];
+$id_array= [];
+$name_array = [];
+$cname_array =[];
+$pname_array = [];
 $images_array =[];
-$query2 = "SELECT * from nfts where project_name='$project_name'";
-$result = $conn->query($query2);
+$query2 = "SELECT * from nfts where owner_name='" . $_SESSION['username'] . "'";
+$result1 = $conn->query($query2);
 $count = 1;
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-        $id_array[$count] = $row["id"];
-        $name_array[$count] = $row["name"];
-        $price_array[$count]= $row["price"];
-        $c_date_array[$count]= $row["creation_date"];
-        $price_array[$count]= $row["price"];
-        $images_array[$count] = $project_folder.substr($id_array[$count],1).$ext;
+if($result1->num_rows > 0){
+    while($row = $result1->fetch_assoc()){
+        $id_array[$count] = $row['id'];
+        $pname_array[$count] = $row['project_name'];
+        $cname_array[$count] = $row["owner_name"];
+        $name_array[$count] = $pname_array[$count]." ".substr($id_array[$count],1);
+        $images_array[$count] = $project_folder.$name_array[$count].$ext;
         $count = $count+1;
     }
 }
+
+
 $in_count = 1;
-$query3 = "SELECT COUNT(*) AS NFT_COUNT FROM NFTS WHERE project_name='$project_name'";
+/*$query3 = "SELECT COUNT(*) AS NFT_COUNT FROM NFTS WHERE owner_name ='$project_name'";
 $result = $conn->query($query3);
 $NFTs_count = 0;
 if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){
         $NFTs_count = $row["NFT_COUNT"];
     }
-}
+}*/
 ?>
 
 <html>
@@ -299,84 +289,47 @@ z-index: 10 !important;"
         <a class="active" href="cryptex.php">Home</a>
         <a class="active" href="#Trending">Trending</a>
         <a class="active" href="projects.php">Projects</a>
-        <a class="active" href="#account">My Account</a>
+        <a class="active" href="log_in.php">My Account</a>
 
 
     </div>
 </div>
 <div class="project_top">
     <img class="profile_picture" src="<?php echo $profile_picture; ?>"><br>
-    <p class="project_name" id="project_name">
-        <?php echo $project_name;?>
+    <p class="project_name" id="nft_name">
+        <?php echo $name;?>
     </p>
-    <div class="project_owner">
-        <a class="owner_name">
-            <?php echo $owner_name;?></a>
+    <div class="project_owner" style="margin-left: 25vh">
+        <a class="total_NFTs_price_text">
+            <?php echo $account_ID;?></a>
     </div>
-    <div class="total_NFTs_price">
+    <div class="total_NFTs_price" style="margin-left: 55vh">
         <p class="total_NFTs_price_text">
-            <?php echo $NFTs_count;?>
+            <?php echo $NFTs_owned;?>
         </p>
     </div>
-    <div class="floor_price">
-        <p class="floor_price_text">
-            <?php echo $owner_name;?>
+    <div class="floor_price" style="margin-left: 85vh">
+        <p class="floor_price_text" >
+            <?php echo $account_credit;?>
         </p>
     </div>
-    <div class="launch_date">
-        <p class="launch_date_text">
-            <?php echo $launch_date?>
-        </p>
-    </div>
+
+</div>
 </div>
 <div class="project_NFT">
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name1"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
 
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name2"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
+    <?php
+    while($count>1){
+    echo "<div class=\"NFT\">";?>
+    <html><body><img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" >
+    <?php echo "<p class=\"NFT_name\"> " . $name_array[$in_count] . " </p>";?>
+    <?php echo "<p class=\"NFT_price\"> " . $cname_array[$in_count] . " </p>";?>
+    <?php echo "</div>";
+    $count = $count-1;
+    $in_count = $in_count+1;
+    }
+    ?>
 
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name3"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name4"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-    <br>
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name5"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name6"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name7"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
-
-    <div class="NFT">
-        <img class="NFT_image" src="<?php echo $images_array[$in_count];?>">
-        <p class="NFT_name" id="NFT_name8"><?php echo $name_array[$in_count]?></p>
-        <p class="NFT_price"><?php echo $price_array[$in_count]; $in_count = $in_count+1;?></p>
-    </div>
 </div>
 </body>
 

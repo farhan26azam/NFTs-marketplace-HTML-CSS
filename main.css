@@ -1,0 +1,357 @@
+
+@font-face {
+    font-family: LeagueSpartan;
+    src: url(LeagueSpartan-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: Kombu;
+    src: url(gomarice_sio_kombu.ttf);
+}
+@font-face {
+    font-family: Hammersmith;
+    src: url(HammersmithOne-Regular.ttf);
+}
+@font-face {
+    font-family: PoppinsBold;
+    src: url(Poppins-Bold.ttf);
+}
+.active, .search_button, .account_button{
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'LeagueSpartan',serif;
+    font-weight: bold;
+}
+.active:hover, .search_button:hover, .account_button:hover{
+    scale: 1.2;
+    color: white;
+}
+.account_button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    margin-top: 5.5vh;
+    width: 10vw;
+    font-family: LeagueSpartan;
+    font-size: 3vh;
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 6vw;
+    z-index: 1;
+    border: solid;
+    border-color: slateblue;
+    border-radius: 20px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 20px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: darkslateblue;
+    scale: 1.2;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+div.front {
+    position: absolute;
+    top: 55px;
+    height: 700px;
+    width: 98%;
+    margin: 15px 15px 0 15px;
+    background-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid thin;
+    border-style: none;
+    border-color: royalblue;
+    border-radius: 20px;
+}
+
+.dashboard_button {
+    font-size: 4vh;
+    font-size: 2vw;
+    font-family: LeagueSpartan;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 4vh;
+    margin-left: 38vw;
+    background-color: black;
+    width: 20vw;
+    height: 8vh;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: royalblue;
+}
+.dashboard_button:hover{
+    background-color: royalblue;
+    transform: scale(1.1,1.1);
+}
+
+div.front {
+    padding-top: 2vh;
+    position: absolute;
+    height: 60vh;
+    width: 98%;
+    margin: 15px 15px 0 15px;
+    background-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid thin;
+    border-style: none;
+    border-color: royalblue;
+    border-radius: 20px;
+}
+
+div.side {
+    margin: 15px 15px 15px 15px;
+    position: absolute;
+    top: 70vh;
+    height: 60vh;
+    width: 22vw;
+    background-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid thin;
+    border-color: royalblue;
+    border-radius: 20px;
+
+}
+div.side:hover {
+    border: solid;
+    background-color: black;
+    border-color: royalblue;
+    transform: scale(1.01,1.01);
+}
+div.middle {
+    margin: 15px 15px 15px 15px;
+    position: absolute;
+    top: 70vh;
+    height: 60vh;
+    width: 50vw;
+    background-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid thin;
+    border-color: royalblue;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.NFT{
+    border-style: groove;
+    border-color: transparent;
+    border-radius: 20px;
+    background-color: darkslateblue;
+    width: 22%;
+    height: 45%;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.NFT:hover{
+    transform: scale(1.3);
+}
+.project_NFT{
+    border-style: groove;
+    border-radius: 30px;
+    border-color: slateblue;
+    background-color: transparent;
+    width: 70vw;
+    margin-left: 15vw;
+    height: 95vh;
+    margin-top: 74vh;
+    position: absolute;
+    padding: 0 0 3vh 0;
+}
+.project_NFT:hover{
+    border: solid;
+    background-color: black;
+    border-color: royalblue;
+    transform: scale(1.01,1.01);
+}
+.NFT_image{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    border-style: hidden;
+    border-radius:20px;
+}
+.NFT_name{
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    line-height: 28px;
+    color: white;
+    padding-top: 3vh;
+    padding-left: 2vw;
+
+}
+.NFT_price{
+    text-align: center;
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    line-height: 28px;
+    color: white;
+    padding-top: 1vh;
+    padding-left: 1.2vw;
+}
+div.middle:hover {
+    border: solid;
+    background-color: black;
+    border-color: royalblue;
+    transform: scale(1.01,1.01);
+}
+
+p {
+    color: white;
+    font-family: sans-serif;
+}
+
+p.sidet {
+    font-family: LeagueSpartan;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3vw;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+
+button.more, .more_projects {
+    position: absolute;
+    margin-left: 20%;
+    bottom: 20px;
+    font-size: 2pc;
+    font-family: LeagueSpartan;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background-color: royalblue;
+    width: 60%;
+    height: 50px;
+    border-radius: 10px;
+    border: solid thin;
+    border-color: royalblue;
+}
+.more_projects{
+    margin-left: -72%;
+}
+button.more:hover {
+    background-color: black;
+    transform: scale(1.1,1.1);
+}
+
+
+div.proj {
+    position: absolute;
+    right: 5%;
+    margin: 5pc 2pc 2pc 2pc;
+    position: absolute;
+    height: 50vh;
+    width: 25vw;
+    background-color: #161616;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 20px;
+}
+
+div.proj:hover {
+    background-color: #282828;
+    transform: scale(1.02,1.02);
+}
+
+div.img {
+    position: absolute;
+    left: 10%;
+    top: 2%;
+    position: absolute;
+    height: 75%;
+    width: 80%;
+    border: none;
+    border-radius: 20px;
+}
+
+center_gif{
+    margin-top: 2px;
+    margin-left: 40%;
+    width: 20px;
+    float: right;
+}
+
+
+.sidet_highlights{
+    padding-top: -20px;
+    padding-left: 25%;
+    font-family: LeagueSpartan;
+    font-size: 40px;
+}
+.NFT1, .NFT2{
+    border-style: groove;
+    border-color: transparent;
+    border-radius: 20px;
+    background-color: darkslateblue;
+    width: 40%;
+    height: 65%;
+    margin-top: -6%;
+    float: left;
+    margin-left: 7%;
+    padding-top: 3px;
+}
+.NFT1_contain{
+    /*padding-top: 1vh;*/
+    /*padding-left: 1vw;*/
+    /*padding-right: 1vw;*/
+    background-color: transparent;
+    width: 90%;
+    height: 80%;
+    justify-content: center;
+}
+.NFT2{
+    margin-top: -53%;
+    margin-left: 55%;
+    float: right;
+    margin-right: 7%;
+}
+.NFT_description{
+    line-height: 4vh;
+    font-size: 2.5vw;
+    font-family: LeagueSpartan;
+    margin: auto;
+    text-align: center;
+    padding-top: 25px;
+    font-weight: bold;
+}
+.collection_contain{
+    padding-left: 5%;
+    padding-top: 5%;
+    border-style: groove;
+    border-color: transparent;
+    border-radius: 20px;
+    background-color: darkslateblue;
+    width: 18vw;
+    height: 63%;
+    float: left;
+    margin-left: 5%;
+    margin-top: -1.5vh;
+}
