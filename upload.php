@@ -71,7 +71,7 @@ session_start();
     $password = "";
     $conn = mysqli_connect($host, $username, $password, $db);
 if(isset($_POST['complete'])){
-    $creator_name = $_SESSION['username'];
+    $creator_name = 'dippiestash';
     $id = $_POST['nft_id'];
     $type = $_POST['nft_type'];
     $price = $_POST['nft_price'];
@@ -81,8 +81,6 @@ if(isset($_POST['complete'])){
     $query = "INSERT INTO NFTS VALUES 
                      ('$id','$name','$type','$price',curdate(),'$creator_name','$project')";
     $result = $conn->query($query);
-
-
     echo "NFT added successfully!";
     header('Location: cryptex.php');
 }

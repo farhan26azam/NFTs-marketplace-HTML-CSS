@@ -219,7 +219,7 @@ if(isset($_GET['pn']))
 }
 
 echo "<div class='NFT_image' style='margin-left: 2vh; margin-top: 10vh'>" . $_SESSION['username'] . "</div>";
-$query1 = "SELECT * from account where name='" . $_SESSION['username'] . "'";
+$query1 = "SELECT * from account where name='dippiestash'";
 
 
 $result = $conn->query($query1);
@@ -241,7 +241,7 @@ $name_array = [];
 $cname_array =[];
 $pname_array = [];
 $images_array =[];
-$query2 = "SELECT * from nfts where owner_name='" . $_SESSION['username'] . "'";
+$query2 = "SELECT * from nfts where owner_name='dippiestash'";
 $result1 = $conn->query($query2);
 $count = 1;
 if($result1->num_rows > 0){
@@ -255,7 +255,7 @@ if($result1->num_rows > 0){
     }
 }
 
-
+$profile_picture = "NFT_projects_profile_pictures/dippies.avif";
 $in_count = 1;
 
 ?>
@@ -309,12 +309,12 @@ z-index: 10 !important;"
 
 </div>
 </div>
-<div class="project_NFT">
+<div class="project_NFT" style="height: fit-content ">
 
     <?php
     while($count>1){
     echo "<div class=\"NFT\">";?>
-    <html><body><img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" >
+        <html><body><img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" ></body></html>
     <?php echo "<p class=\"NFT_name\"> " . $name_array[$in_count] . " </p>";?>
     <?php echo "<p class=\"NFT_price\"> " . $cname_array[$in_count] . " </p>";?>
     <?php echo "</div>";

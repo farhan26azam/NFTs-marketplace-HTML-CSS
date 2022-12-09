@@ -82,6 +82,8 @@ z-index: 10 !important;"
 
 
         <a class="search_button" style="float: right" href="explore.php">Search</a>
+        <a class="search_button" style="float: right" href="upload.php">Upload</a>
+        <a class="search_button" style="float: right" href="update.php">Update</a>
     </div>
 </div>
 <div class="front">

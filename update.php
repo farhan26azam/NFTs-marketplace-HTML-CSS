@@ -71,14 +71,12 @@ $username = "root";
 $password = "";
 $conn = mysqli_connect($host, $username, $password, $db);
 if(isset($_POST['complete'])){
-    $creator_name = $_SESSION['username'];
+    $creator_name = 'dippiestash';
     $id = $_POST['nft_id'];
     $price = $_POST['nft_price'];
     $project = $_POST['pname'];
-    $name = $project." ".$id;
-    $filename = $_POST['filename'];
-    $query = "update nfts set price='$price' where owner_name = '$creator_name'
-    AND id='$id'";
+    $name = 'Dippies'." ".$id;
+    $query = "update nfts set price='$price' where owner_name ='$creator_name' AND id='$id'";
     $result = $conn->query($query);
     if($result)
     echo "NFT updated successfully!";
