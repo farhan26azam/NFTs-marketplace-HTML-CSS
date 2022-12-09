@@ -10,7 +10,7 @@ $background = "tech_back.jpg"?>
         ">
 <head>
     <meta charset="UTF-8">
-    <title>Projects</title>
+    <title>Dippies</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
     <link rel="icon" type="image/x-icon" href="icon.png">
@@ -18,6 +18,7 @@ $background = "tech_back.jpg"?>
 </head>
 </html>
 <?php
+session_start();
 $host = "localhost";
 $db = "cryptex";
 $username = "root";
@@ -87,30 +88,25 @@ z-index: 10 !important;"
     <?php
     while($count>1){
         echo "<div class=\"NFT\">";?>
-        <html><body>
-        <img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" >
-        <div style="
-    position: absolute;
-    padding: 0px 0px 0px 0px;
-    font-family: LeagueSpartan;
-    border:solid;
-    height: 2vh;
-    width: 10vw;
-    margin-top: 6vh;
-    margin-left: 5.5%;
-    border-radius: 5px;
-    background-color:transparent;">
-            <a style="color:transparent" href="project_profile.php?pn=<?php echo $pname_array[$in_count]; ?>" >
-
-            </a>
-        </div>
-        </body></html>
-        <?php echo "<p class=\"NFT_price\"> " . $cname_array[$in_count] . " </p>";?>
+        <html><body><img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" ></body></html>
+        <?php echo "<p class=\"NFT_price\"> <a style=\"color:white\" href=\"project_profile.php?pn=" . $pname_array[$in_count] . "\">" . $cname_array[$in_count] . " </a> </p>";?>
         <?php echo "</div>";
         $count = $count-1;
         $in_count = $in_count+1;
     }
     ?>
+
+
+
+
+    <!--    <div class="NFT">-->
+    <!--        <img class="NFT_image" src="--><?php //echo $images_array[$in_count];?><!--">-->
+    <!--        <p class="NFT_name" id="NFT_name2">--><?php //echo $pname_array[$in_count]?><!--</p>-->
+    <!--        <p class="NFT_price">--><?php //echo $cname_array[$in_count]; $in_count = $in_count+1;?><!--</p>-->
+    <!--    </div>-->
+
+
+
 </div>
 </body>
 

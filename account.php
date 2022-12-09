@@ -10,7 +10,7 @@ $background = "tech_back.jpg"?>
         ">
 <head>
     <meta charset="UTF-8">
-    <title>Beanz</title>
+    <title>My Account</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
     <link rel="icon" type="image/x-icon" href="icon.png">
@@ -204,7 +204,7 @@ $background = "tech_back.jpg"?>
 </html>
 <?php
 session_start();
-$filename = basename($_SERVER["SCRIPT_FILENAME"],'.php');
+
 $host = "localhost";
 $db = "cryptex";
 $username = "root";
@@ -257,14 +257,7 @@ if($result1->num_rows > 0){
 
 
 $in_count = 1;
-/*$query3 = "SELECT COUNT(*) AS NFT_COUNT FROM NFTS WHERE owner_name ='$project_name'";
-$result = $conn->query($query3);
-$NFTs_count = 0;
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-        $NFTs_count = $row["NFT_COUNT"];
-    }
-}*/
+
 ?>
 
 <html>

@@ -101,7 +101,7 @@ div.front {
     text-align: center;
     margin-top: 4vh;
     margin-left: 38vw;
-    background-color: black;
+    background-color: royalblue;
     width: 20vw;
     height: 8vh;
     border-radius: 10px;
@@ -109,7 +109,7 @@ div.front {
     border-color: royalblue;
 }
 .dashboard_button:hover{
-    background-color: royalblue;
+    background-color: black;
     transform: scale(1.1,1.1);
 }
 
@@ -172,7 +172,7 @@ div.middle {
     margin-left: 2%;
 }
 .NFT:hover{
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 .project_NFT{
     border-style: groove;
@@ -247,21 +247,20 @@ button.more, .more_projects {
     color: white;
     text-decoration: none;
     text-align: center;
-    background-color: royalblue;
+    background-color: darkslateblue;
     width: 60%;
     height: 50px;
     border-radius: 10px;
     border: solid thin;
-    border-color: royalblue;
+    border-color: darkslateblue;
 }
 .more_projects{
     margin-left: -72%;
 }
-button.more:hover {
+button.more_projects:hover {
     background-color: black;
     transform: scale(1.1,1.1);
 }
-
 
 div.proj {
     position: absolute;
@@ -354,4 +353,22 @@ center_gif{
     float: left;
     margin-left: 5%;
     margin-top: -1.5vh;
+}
+
+div.foot {
+    position: absolute;
+    right: 1%;
+    margin: 5pc 2pc 2pc 2pc;
+    position: absolute;
+    height: 40vh;
+    width: 15vw;
+    background-color: #161616;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 20px;
+}
+
+div.foot:hover {
+    background-color: #282828;
+    transform: scale(1.02,1.02);
 }

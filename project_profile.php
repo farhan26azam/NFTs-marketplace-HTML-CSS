@@ -203,6 +203,7 @@ $background = "tech_back.jpg"?>
 </head>
 </html>
 <?php
+session_start();
 $filename = basename($_SERVER["SCRIPT_FILENAME"],'.php');
 $host = "localhost";
 $db = "cryptex";

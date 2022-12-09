@@ -33,6 +33,7 @@ if(isset($_POST['search']))
     $name_array = [];
     $cname_array =[];
     $pname_array = [];
+$price_array=[];
     $images_array =[];
 //$count = $count-1;
 
@@ -47,14 +48,13 @@ if(isset($_POST['search']))
             $id_array[$count] = $row['id'];
             $pname_array[$count] = $row['project_name'];
             $cname_array[$count] = $row["owner_name"];
+            $price_array[$count] = $row['price'];
             $name_array[$count] = $pname_array[$count]." ".substr($id_array[$count],1);
             $images_array[$count] = $project_folder.$name_array[$count].$ext;
             $count = $count+1;
         }
     }
     $in_count = 1;
-
-
     ?>
 
     <html>
@@ -69,8 +69,7 @@ top: 0;
 height: 50px;
 width: 99.5%;
 float: left;
-z-index: 10 !important;"
->
+z-index: 10 !important;">
     <div class="topnav" style="padding-left: 34vw">
         <p style="padding-top: 12px;
         color: white;font-size: 40px;
@@ -80,8 +79,6 @@ z-index: 10 !important;"
         <a class="active" href="#Trending">Trending</a>
         <a class="active" href="projects.php">Projects</a>
         <a class="active" href="#account">My Account</a>
-
-
     </div>
 </div>
 <form action="search_result.php" method="POST">
@@ -120,22 +117,34 @@ z-index: 10 !important;"
     while($count>1){
     echo "<div class=\"NFT\">";?>
     <html><body><img class="NFT_image" src= "<?php echo $images_array[$in_count]; ?>" >
-    <?php echo "<p class=\"NFT_name\"> " . $name_array[$in_count] . " </p>";?>
-    <?php echo "<p class=\"NFT_price\"> " . $cname_array[$in_count] . " </p>";?>
+    <?php echo "<p 
+        style='text-align:center;font-family: LeagueSpartan;color: white;
+        background-color: transparent; font-size: 1.6vw; height: 3vh; 
+        margin-top: 1vh; padding-top: 1vh; padding-left: 1vw;padding-right:1vw;width: fit-content;margin-left: 2%;
+        border: royalblue;border-style: solid;border-radius: 15px;
+        
+        '> " . $name_array[$in_count] . " </p>";?>
+    <?php echo "<p style='font-family: LeagueSpartan;color: white;
+        background-color: royalblue; font-size: 1.2vw; height: 3vh; 
+        margin-top: 1vh; padding-top: 1vh; padding-left: 1vw;padding-right:1vw;width: fit-content;margin-left: 2%;
+        border: royalblue;border-style: solid;border-radius: 15px;display: flex'> " . $cname_array[$in_count] . " </p>";?>
+    <?php echo "<div style='display: flex'>"  ?>
+    <?php echo "<p style='font-family: LeagueSpartan;color: white;
+        background-color: royalblue; font-size: 1.2vw; height: 3vh; 
+        margin-top: 1vh; padding-top: 1vh; padding-left: 1vw;padding-right:1vw;width: fit-content;margin-left: 2%;
+        border: royalblue;border-style: solid;border-radius: 15px;display: flex'> " . $price_array[$in_count] . " </p>";?>
+    <?php echo "<button style='font-family: LeagueSpartan;color: white;padding-left: 4vw;
+        background-color: royalblue; font-size: 1.2vw; height: 4.5vh; 
+        margin-top: 1vh; padding-top: 1vh; padding-left: 1vw;padding-right:1vw;width: 8vw;margin-left: 2%;
+        border: royalblue;border-style: solid;border-radius: 15px;display: flex'> " . "Buy Now" . " </button>";?>
+    <?php echo "</div>"?>
+
     <?php echo "</div>";
     $count = $count-1;
     $in_count = $in_count+1;
-    }
+    }}
     ?>
-
 </div>
 </body>
 
 </html>
-
-<?php
-
-}
-
-?>
-

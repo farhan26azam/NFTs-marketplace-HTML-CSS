@@ -9,6 +9,7 @@
 <head>
 
 <?php
+session_start();
       $connect = mysqli_connect("localhost", "root", "") or die(mysqli_error($connect));
     	mysqli_select_db($connect,"cryptex") or die(mysqli_error($connect));
      if(isset($_POST['Login']))
@@ -24,9 +25,13 @@
 		if (mysqli_num_rows($result) == 0) { 
 		echo '<script type="text/JavaScript"> alert("Incorrect Email or Password.");</script>';
 
-		} else { 
-
-   		header("Location: cryptex.php");
+		} else {
+            while($row = $result->fetch_assoc()) {
+                $name = $row['name'];
+            }
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $name;
+            header("Location: cryptex.php");
 		}  
 	}
 

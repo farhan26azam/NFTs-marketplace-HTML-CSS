@@ -9,7 +9,7 @@ $background = "tech_back.jpg"?>
     ">
 <head>
     <meta charset="UTF-8">
-    <title>Upload</title>
+    <title>Update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
@@ -65,25 +65,23 @@ $background = "tech_back.jpg"?>
 
 <?php
 session_start();
-    $host = "localhost";
-    $db = "cryptex";
-    $username = "root";
-    $password = "";
-    $conn = mysqli_connect($host, $username, $password, $db);
+$host = "localhost";
+$db = "cryptex";
+$username = "root";
+$password = "";
+$conn = mysqli_connect($host, $username, $password, $db);
 if(isset($_POST['complete'])){
     $creator_name = $_SESSION['username'];
     $id = $_POST['nft_id'];
-    $type = $_POST['nft_type'];
     $price = $_POST['nft_price'];
     $project = $_POST['pname'];
     $name = $project." ".$id;
     $filename = $_POST['filename'];
-    $query = "INSERT INTO NFTS VALUES 
-                     ('$id','$name','$type','$price',curdate(),'$creator_name','$project')";
+    $query = "update nfts set price='$price' where owner_name = '$creator_name'
+    AND id='$id'";
     $result = $conn->query($query);
-
-
-    echo "NFT added successfully!";
+    if($result)
+    echo "NFT updated successfully!";
     header('Location: cryptex.php');
 }
 
@@ -124,17 +122,15 @@ z-index: 10 !important;"
 </div>
 <p class="NFT_name"
    style="margin-top: 6vh; text-align: center"
->Upload NFTs from your computer</p>
+>Update price of your NFTs</p>
 <div class="project_NFT" style="margin-top: 5vh;height:fit-content;">
-<form action="upload.php" method="post" style="padding: 20px 20px 20px 25pc">
-    <input class="in" ; type="text" required id="pname" name="pname" placeholder="Project name" />
-    <br>
-    <input class="in" ; type="text" required id="nft_id" name="nft_id" placeholder="NFT ID" /><br>
-    <input class="in" ; type="text" required id="nft_type" name="nft_type" placeholder="NFT type" /><br>
-    <input class="in" ; type="text" required id="nft_price" name="nft_price" placeholder="NFT Price" /><br>
-    <input class="upload" type="file" required id="filename" name="filename"></input>
-    <input style="margin-left:3%;width: 15vw" class="more_projects" type="submit" id='complete' name="complete" value="Upload" />
-</form>
+    <form action="update.php" method="post" style="padding: 20px 20px 20px 25pc">
+        <input class="in" ; type="text" required id="pname" name="pname" placeholder="Project name" />
+        <br>
+        <input class="in" ; type="text" required id="nft_id" name="nft_id" placeholder="NFT ID" /><br>
+        <input class="in" ; type="text" required id="nft_price" name="nft_price" placeholder="New NFT Price" /><br>
+        <input style="margin-left:3%;width: 15vw" class="more_projects" type="submit" id='complete' name="complete" value="Update" />
+    </form>
 </div>
 
 
