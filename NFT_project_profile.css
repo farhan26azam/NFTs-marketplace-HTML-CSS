@@ -1,0 +1,227 @@
+@font-face {
+    font-family: LeagueSpartan;
+    src: url(LeagueSpartan-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: Kombu;
+    src: url(gomarice_sio_kombu.ttf);
+}
+@font-face {
+    font-family: Hammersmith;
+    src: url(HammersmithOne-Regular.ttf);
+}
+@font-face {
+    font-family: PoppinsBold;
+    src: url(Poppins-Bold.ttf);
+}
+.active{
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'LeagueSpartan',serif;
+    font-weight: bold;
+}
+.project_top{
+    border-style: solid;
+    border-width: 1vh;
+    border-radius: 35px;
+    border-color: slateblue;
+    background-color: transparent;
+    width: 70vw;
+    margin-left: 15vw;
+    height: 40vh;
+    margin-top: 30vh;
+    position: absolute;
+    backface-visibility: visible;
+}
+.profile_picture{
+    height: 28vh;
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 180px;
+    margin-left: 39%;
+    margin-top: -14vh;
+}
+.project_name{
+    font-family: PoppinsBold;
+    font-size: 3vw;
+    color: white;
+    margin-top: 3.5vh;
+    margin-left: 20vw;
+    text-align: center;
+    background-color: transparent;
+    border-style: hidden;
+    width: 30vw;
+}
+.project_owner{
+    background-color:darkslateblue;
+    border-style: hidden;
+    border-radius: 20px;
+    width: 20%;
+    height: 6vh;
+    margin-top: 6vh;
+    margin-left: 3vw;
+    text-align: center;
+    padding-top: 4vh;
+}
+.owner_name{
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    color: white;
+    text-align: center;
+}
+.owner_name:hover{
+    color: aliceblue;
+    cursor: auto;
+}
+.total_NFTs_price{
+    float: left;
+    background-color:darkslateblue;
+    border-style: hidden;
+    border-radius: 20px;
+    width: 20%;
+    height: 6vh;
+    margin-top: -10vh;
+    margin-left: 18vw;
+    text-align: center;
+    padding-top: 4vh;
+}
+.total_NFTs_price_text{
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    color: white;
+    text-align: center;
+}
+.floor_price{
+    float: left;
+    background-color:darkslateblue;
+    border-style: hidden;
+    border-radius: 20px;
+    width: 20%;
+    height: 6vh;
+    margin-top: -10vh;
+    margin-left: 33vw;
+    text-align: center;
+    padding-top: 4vh;
+}
+.floor_price_text{
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    color: white;
+    text-align: center;
+}
+.launch_date{
+    float: left;
+    background-color:darkslateblue;
+    border-style: hidden;
+    border-radius: 20px;
+    width: 26%;
+    height: 6vh;
+    margin-top: -10vh;
+    margin-left: 48vw;
+    text-align: center;
+    padding-top: 4vh;
+}
+.launch_date_text{
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    color: white;
+    text-align: center;
+}
+.project_NFT{
+    border-style: groove;
+    border-radius: 30px;
+    border-color: slateblue;
+    background-color: transparent;
+    width: 70vw;
+    margin-left: 15vw;
+    height: 95vh;
+    margin-top: 74vh;
+    position: absolute;
+    padding: 0 0 3vh 0;
+}
+.NFT{
+    border-style: groove;
+    border-color: transparent;
+    border-radius: 20px;
+    background-color: darkslateblue;
+    width: 22%;
+    height: 45%;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.NFT:hover{
+    transform: scale(1.3);
+}
+.NFT_image{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    border-style: hidden;
+    border-radius:20px;
+}
+.NFT_name{
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    line-height: 28px;
+    color: white;
+    padding-top: 3vh;
+    padding-left: 2vw;
+
+}
+.NFT_price{
+    text-align: center;
+    font-family: LeagueSpartan;
+    font-size: 2vw;
+    line-height: 28px;
+    color: white;
+    padding-top: 1vh;
+    padding-left: 1.2vw;
+}
+.more {
+    position: absolute;
+    margin-left: 20%;
+    bottom: 20px;
+    font-size: 2pc;
+    font-family: LeagueSpartan;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background-color: royalblue;
+    width: 40%;
+    height: 10%;
+    border-radius: 10px;
+    border: solid thin;
+    border-color: royalblue;
+}
+
+.more:hover {
+    background-color: black;
+    transform: scale(1.1,1.1);
+}
+
+
+.search_bar {
+    position: absolute;
+    padding: 0px 0px 0px 10px;
+    font-family: LeagueSpartan;
+    font-size: 150%;
+    border: solid thin;
+    height: 10vh;
+    width: 29vw;
+    color: white;
+    margin-top: 10vh;
+    margin-left: 35%;
+    border-radius: 5px;
+    background-color:transparent;
+    border-color:royalblue;
+}
+
+.search_bar:focus {
+    border: solid;
+    border-color: dodgerblue;
+}
